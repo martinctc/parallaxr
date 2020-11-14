@@ -35,7 +35,12 @@ generate_scroll_doc <- function(path, inputs){
   csstext <- readLines(con = system.file("style.css", package = "parallaxr"), warn = FALSE)
   csstext_col <- paste(csstext, collapse = " ")
 
-  p <- paste(headtext, '<style>', csstext_col, '</style>', '</head>')
+  p <- paste(headtext,
+             '<meta name="viewport" content="width=device-width, initial-scale=1.0">',
+             '<style>',
+             csstext_col,
+             '</style>',
+             '</head>')
 
   input_chr <-
     inputs %>%
