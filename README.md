@@ -1,6 +1,8 @@
 # parallaxr
 Generate a parallax scroll document in R with YAML and Markdown
 
+![](https://raw.githubusercontent.com/martinctc/parallaxr/main/.dev/parallaxr.gif)
+
 This is an R package that allows you to create a parallax scroll document with YAML and Markdown files. 
 
 Check out this demo output: 
