@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+  <html>
+  <head> <style>  * {    box-sizing: border-box;  }   body {    font-size: 30px;    padding: 0;    margin: 0;  }   .scrollHalf {    position: relative  }   /*.scrollHalf__group { opacity: calc(1/(1+(var(--visible-y)*var(--visible-y)*var(--visible-y)*var(--visible-y)))); transition: all 200ms ease-in-out;}*/   .scrollHalf__group {    transition: all 200ms ease-in-out;  }   .scrollHalf__group__imagen {    overflow: hidden;  }   .scrollHalf__group__content {    padding: 3rem;  }   .scrollHalf__group[data-scroll="out"] {    opacity: 0;  }   .scrollHalf__group[data-scroll="in"] {    opacity: calc(var(--visible-y)*1.9);  }   @media screen and (min-width:900px) {    .scrollHalf__group {      min-height: 100vh;    }    .scrollHalf__group__imagen {      position: fixed;      top: 0;      left: 0;      width: 50vw;    }    .scrollHalf__group__imagen img {      min-height: 100vh;      min-width: 50vw;    }    .scrollHalf__group__content {      margin: 0 3vw 0 52vw;    }  }   .halfScroll {    position: relative  }   .halfScroll__group {    transition: all 200ms ease-in-out;  }   .halfScroll__group__imagen {    overflow: hidden;  }   .halfScroll__group__content {    padding: 3rem;  }   .halfScroll__group[data-scroll="out"] {    opacity: 0;  }   .halfScroll__group[data-scroll="in"] {    opacity: calc(var(--visible-y)*1.9);  }   @media screen and (min-width:900px) {    .halfScroll__group {      min-height: 100vh;    }    .halfScroll__group__content {      position: fixed;      top: 0;      left: 0;      width: 52vw;    }    .halfScroll__group__imagen img {      min-height: 100vh;      min-width: 52vw;    }    .halfScroll__group__imagen {      margin: 0 0vw 0 50vw;    }  }   body{   font-family: "Segoe UI";   font-size: 16px;   color: #2e2e2e; }  h1, h2, h3, h4, h5, h6{   font-family: $secondary-font;   font-weight: 600;   color: #000000; }  p{   font-size: 16px;   color: #666666; }  h1{   font-size: 60px; }  h2{   font-size: 50px; }  h3{   font-size: 30px; }  h4{   font-size: 25px; }  h5{   font-size: 18px; }  h6{   font-size: 15px;   font-weight: 300; } </style> </head><body><div class='scrollHalf__group' data-scroll><div class='scrollHalf__group__content' ><h1>Generating a parallax scroll document in R</h1>
+
+<p>This example will walk you through on how to generate a <strong>parallax scroll document</strong> in R, using the package <strong>parallaxr</strong>.</p>
+
+<p>You may find random GIFs on this example, but you can be assured that you can replace these with more sensible options of your own choice when you come to use the package. </p>
+
+<p>Visit <a href="https://github.com/martinctc/parallaxr">the GitHub repo</a> for the code. This is built as an R package, which allows you to easily reproduce the scroll document. </p>
+
+<p>Created by <a href="https://martinctc.github.io/blog/">Martin Chan</a>.</p>
+
+<p><em>Image credits to GIPHY and Unsplash.</em></p>
+</div><div class='scrollHalf__group__imagen' ><img src="https://media.giphy.com/media/nDSlfqf0gn5g4/giphy.gif"/></div></div> <div class='halfScroll__group' data-scroll><div class='halfScroll__group__content' ><h1>Why create a parallax scroll document?</h1>
+
+<p>A <strong>parallax scroll document</strong> allows you to show visualizations, GIFs, and images alongside text. This is great for creating professional, sleek-looking static pages for you to present an essay, an argument, a concept, or even some lyrics or poems that you&#39;ve written. </p>
+
+<p>This isn&#39;t necessarily a ground breaking invention, but generating a document like this with Markdown files and R is just very cool, and easy to implement.</p>
+</div><div class='halfScroll__group__imagen' ><img src="https://images.unsplash.com/photo-1517021897933-0e0319cfbc28?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1319&amp;q=80"/></div></div> <div class='scrollHalf__group' data-scroll><div class='scrollHalf__group__content' ><h1>This is page 3.</h1>
+
+<p>The purpose of this page is to demonstrate three features:</p>
+
+<ol>
+<li>That you can change whether the content shows up on the <strong>left</strong> or on the <strong>right</strong></li>
+<li>That you can change the image (phew)</li>
+<li>That you can add any formatting that you can add to Markdown, including code formatting</li>
+</ol>
+
+<p>The main workhorse function in <strong>parallaxr</strong> is <code>parse_md()</code>, which does the following:</p>
+
+<blockquote>
+<p>Parses a Markdown document with YAML headers and returns a data frame for generating a scroll document</p>
+</blockquote>
+
+<p>The Markdown document to pass through must have two keys in the YAML header. For instance, the YAML header for <em>this</em> particular page is:</p>
+
+<pre><code>---
+position: left
+imgurl: https://media.giphy.com/media/gVE7nURcnD9bW/giphy.gif
+---
+</code></pre>
+</div><div class='scrollHalf__group__imagen' ><img src="https://images.unsplash.com/photo-1497290756760-23ac55edf36f?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=334&amp;q=80"/></div></div> <div class='scrollHalf__group' data-scroll><div class='scrollHalf__group__content' ><h1>Embed more than content - you can also embed HTML widgets</h1>
+
+<p>This is a simple trick that uses <strong>iframes</strong>, but remember when I said that you can display anything that you can display in a Markdown document? The possibilities are quite endless. </p>
+
+<p>Here is a map of district council constituencies in Hong Kong, and a plug for our open-source project team <a href="https://hong-kong-districts-info.github.io/">Hong Kong Districts Info</a>. This map is built using the <strong>leaflet</strong> package in R.</p>
+
+<iframe seamless src= "https://hong-kong-districts-info.github.io/widgets/MapHKDistricts.html", width="100%", height="500"></iframe>
+</div><div class='scrollHalf__group__imagen' ><img src="https://images.unsplash.com/photo-1576788369575-4ab045b9287e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=682&amp;q=80"/></div></div> <div class='scrollHalf__group' data-scroll><div class='scrollHalf__group__content' ><h1>Enough with the tease, how do I get started?</h1>
+
+<p>You can install the package with the following line of code. Make sure you have <strong>devtools</strong> installed first, of course:</p>
+
+<pre><code class="R">devtools::install_github(&quot;martinctc/parallaxr&quot;)
+</code></pre>
+
+<p>On the <a href="https://github.com/martinctc/parallaxr">the GitHub repo</a>, look inside the <code>examples</code> folder. You will find the script and the Markdown documents that were used to produce this page. Here is a snippet of the starter code, but please visit the repo for the latest version:</p>
+
+<pre><code class="R">## Load packages
+library(parallaxr)
+
+## Character vector of all MD files
+all_md_str &lt;- list.files(path = &quot;examples/Markdown&quot;, full.names = TRUE)
+
+
+## Loop through each MD file, parse, and return a single tibble
+md_tibble &lt;-
+  all_md_str %&gt;%
+  purrr::map_dfr(parse_md) # Return a tibble with row-binding
+
+## Output HTML file
+
+generate_scroll_doc(path = &quot;examples/parallaxr-examples-output.html&quot;,
+                    inputs = md_tibble)
+</code></pre>
+
+<p>More documentation is available for the individual functions, e.g. </p>
+
+<pre><code class="R">?generate_scroll_doc
+</code></pre>
+
+<p>If you have any questions, bugs, or suggestions for enhancements, please log an issue with <a href="https://github.com/martinctc/parallaxr/issues">https://github.com/martinctc/parallaxr/issues</a>. This is an open-source project, so any contribution is very welcome! Pull requests are welcome. </p>
+</div><div class='scrollHalf__group__imagen' ><img src="https://images.unsplash.com/photo-1530908295418-a12e326966ba?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=334&amp;q=80"/></div></div></body><footer>     <script type="text/javascript" src ="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>     <script type="text/javascript" src ="https://unpkg.com/scroll-out@2.2.2/dist/scroll-out.min.js"></script>         <script>         $(document).ready(function($) {              console.clear();              ScrollOut({         cssProps: {         visibleY: true,         viewportY: true,         scrollPercentY: true         },         threshold:0.2         });              });       </script> </footer>  </html>
