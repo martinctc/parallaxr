@@ -12,6 +12,10 @@
 #' - `position`: either "left" or "right" to specify whether content
 #' should appear on the left or right.
 #' - `imgurl`: URL for the image.
+#' @param custom_css A character vector of length 1 that holds the CSS code for the parallax
+#' document. You may use a combination of `readLines()` and `paste()` to create this vector
+#' from a local CSS file in your working directory. Use `default_css()` to return the default
+#' CSS to use for custom editing (you'll need to save the output into a custom CSS file).
 #'
 #' @examples
 #' \dontrun{
@@ -25,20 +29,31 @@
 #' }
 #'
 #' @export
-generate_scroll_doc <- function(path, inputs){
+generate_scroll_doc <- function(path, inputs, custom_css = NULL){
   headtext <- c(
   "<!DOCTYPE html>
   <html>
   <head>")
 
+
   foottext <- readLines(con = system.file("footer.html", package = "parallaxr"), warn = FALSE) %>% paste(collapse = " ")
-  csstext <- readLines(con = system.file("style.css", package = "parallaxr"), warn = FALSE)
-  csstext_col <- paste(csstext, collapse = " ")
+
+  ## Provide ability to return custom css
+
+  if(!is.null(custom_css)){
+
+    csstext <- custom_css
+
+  } else {
+
+    csstext <- readLines(con = system.file("style.css", package = "parallaxr"), warn = FALSE) %>% paste(collapse = " ")
+
+  }
 
   p <- paste(headtext,
              '<meta name="viewport" content="width=device-width, initial-scale=1.0">',
              '<style>',
-             csstext_col,
+             csstext,
              '</style>',
              '</head>')
 

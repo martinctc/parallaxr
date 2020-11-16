@@ -4,7 +4,7 @@
 \alias{generate_scroll_doc}
 \title{Generate a HTML scroll document, passing a tibble with parameters as an argument}
 \usage{
-generate_scroll_doc(path, inputs)
+generate_scroll_doc(path, inputs, custom_css = NULL)
 }
 \arguments{
 \item{path}{character string. Specify the path for the HTML file to be written.}
@@ -16,6 +16,11 @@ generate_scroll_doc(path, inputs)
 should appear on the left or right.
 \item \code{imgurl}: URL for the image.
 }}
+
+\item{custom_css}{A character vector of length 1 that holds the CSS code for the parallax
+document. You may use a combination of \code{readLines()} and \code{paste()} to create this vector
+from a local CSS file in your working directory. Use \code{default_css()} to return the default
+CSS to use for custom editing (you'll need to save the output into a custom CSS file).}
 }
 \description{
 Pass a tibble with three columns to the \code{inputs} argument in
