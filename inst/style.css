@@ -1,3 +1,5 @@
+ /* Specifications for the scroll effects */
+
  * {
    box-sizing: border-box;
  }
@@ -95,6 +97,8 @@
      margin: 0 0vw 0 50vw;
    }
  }
+
+/* Fonts */
 
  body{
   font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
