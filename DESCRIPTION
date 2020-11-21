@@ -8,6 +8,8 @@ Authors@R:
            email = "martinchan53@gmail.com")
 Description: Convert your Markdown documents and images into a pretty
     parallax scroll document.
+URL: https://github.com/martinctc/parallaxr
+BugReports: https://github.com/martinctc/parallaxr/issues	
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
