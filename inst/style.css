@@ -1,3 +1,5 @@
+ /* Specifications for the scroll effects */
+
  * {
    box-sizing: border-box;
  }
@@ -96,14 +98,16 @@
    }
  }
 
+/* Fonts */
+
  body{
-  font-family: "Segoe UI";
+  font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
   font-size: 16px;
   color: #2e2e2e;
 }
 
 h1, h2, h3, h4, h5, h6{
-  font-family: $secondary-font;
+  font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
   font-weight: 600;
   color: #000000;
 }
