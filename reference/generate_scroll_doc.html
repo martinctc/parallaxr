@@ -138,7 +138,7 @@ with parameters can be generated with <code><a href='parse_md.html'>parse_md()</
 examples).</p>
     </div>
 
-    <pre class="usage"><span class='fu'>generate_scroll_doc</span><span class='op'>(</span><span class='va'>path</span>, <span class='va'>inputs</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>generate_scroll_doc</span><span class='op'>(</span><span class='va'>path</span>, <span class='va'>inputs</span>, custom_css <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -155,6 +155,13 @@ examples).</p>
 should appear on the left or right.</p></li>
 <li><p><code>imgurl</code>: URL for the image.</p></li>
 </ul></td>
+    </tr>
+    <tr>
+      <th>custom_css</th>
+      <td><p>A character vector of length 1 that holds the CSS code for the parallax
+document. You may use a combination of <code><a href='https://rdrr.io/r/base/readLines.html'>readLines()</a></code> and <code><a href='https://rdrr.io/r/base/paste.html'>paste()</a></code> to create this vector
+from a local CSS file in your working directory. Use <code><a href='default_css.html'>default_css()</a></code> to return the default
+CSS to use for custom editing (you'll need to save the output into a custom CSS file).</p></td>
     </tr>
     </table>
 
