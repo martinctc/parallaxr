@@ -4,9 +4,18 @@
 \alias{default_css}
 \title{Return the default CSS document used in the parallaxr package}
 \usage{
-default_css()
+default_css(path = NULL)
+}
+\arguments{
+\item{path}{character. Path to where the CSS file should be saved, including
+a file name with the ".css" file extension.
+Defaults to NULL, where the css will be displayed on the console instead.}
 }
 \description{
-This returns a character vector of length 1 containing the default
-CSS document used to generate the parallax scroll document.
+This returns a character vector of length 1 containing the
+default CSS document used to generate the parallax scroll document.
+}
+\examples{
+default_css()
+
 }
