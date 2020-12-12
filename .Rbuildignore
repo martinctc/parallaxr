@@ -4,3 +4,4 @@
 ^.dev$
 ^examples$
 ^\.github$
+^_pkgdown.yml$
