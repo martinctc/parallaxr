@@ -40,4 +40,17 @@ More documentation is available for the individual functions, e.g.
 ?generate_scroll_doc
 ```
 
+You may also visit https://martinctc.github.io/parallaxr/reference.
+
+## Examples
+
+Further examples and use cases can be found below:
+
+- https://frankpopham.github.io/side/ (@frankpopham)
+- https://durraniu.github.io/BBC100/ (@durranniu)
+
+Thank you all who have contributed examples! If you would like to add your example to this list, please fork this repo and create a pull request to edit this README page.
+
+## Getting involved
+
 If you have any questions, bugs, or suggestions for enhancements, please log an issue with https://github.com/martinctc/parallaxr/issues. This is an open-source project, so any contribution is very welcome! Pull requests are welcome. 
