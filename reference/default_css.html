@@ -40,8 +40,8 @@
 
 
 <meta property="og:title" content="Return the default CSS document used in the parallaxr package — default_css" />
-<meta property="og:description" content="This returns a character vector of length 1 containing the default
-CSS document used to generate the parallax scroll document." />
+<meta property="og:description" content="This returns a character vector of length 1 containing the
+default CSS document used to generate the parallax scroll document." />
 
 
 
@@ -128,14 +128,170 @@ CSS document used to generate the parallax scroll document." />
     </div>
 
     <div class="ref-description">
-    <p>This returns a character vector of length 1 containing the default
-CSS document used to generate the parallax scroll document.</p>
+    <p>This returns a character vector of length 1 containing the
+default CSS document used to generate the parallax scroll document.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>default_css</span><span class='op'>(</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>default_css</span><span class='op'>(</span>path <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
+
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>path</th>
+      <td><p>character. Path to where the CSS file should be saved, including
+a file name with the ".css" file extension.
+Defaults to NULL, where the css will be displayed on the console instead.</p></td>
+    </tr>
+    </table>
 
 
-
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>default_css</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='message'> /* Specifications for the scroll effects */</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'> * {</span>
+#&gt; <span class='message'>   box-sizing: border-box;</span>
+#&gt; <span class='message'> }</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'> body {</span>
+#&gt; <span class='message'>   font-size: 30px;</span>
+#&gt; <span class='message'>   padding: 0;</span>
+#&gt; <span class='message'>   margin: 0;</span>
+#&gt; <span class='message'> }</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'> .scrollHalf {</span>
+#&gt; <span class='message'>   position: relative</span>
+#&gt; <span class='message'> }</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'> /*.scrollHalf__group { opacity: calc(1/(1+(var(--visible-y)*var(--visible-y)*var(--visible-y)*var(--visible-y)))); transition: all 200ms ease-in-out;}*/</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'> .scrollHalf__group {</span>
+#&gt; <span class='message'>   transition: all 200ms ease-in-out;</span>
+#&gt; <span class='message'> }</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'> .scrollHalf__group__imagen {</span>
+#&gt; <span class='message'>   overflow: hidden;</span>
+#&gt; <span class='message'> }</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'> .scrollHalf__group__content {</span>
+#&gt; <span class='message'>   padding: 3rem;</span>
+#&gt; <span class='message'> }</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'> .scrollHalf__group[data-scroll="out"] {</span>
+#&gt; <span class='message'>   opacity: 0;</span>
+#&gt; <span class='message'> }</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'> .scrollHalf__group[data-scroll="in"] {</span>
+#&gt; <span class='message'>   opacity: calc(var(--visible-y)*1.9);</span>
+#&gt; <span class='message'> }</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'> @media screen and (min-width:900px) {</span>
+#&gt; <span class='message'>   .scrollHalf__group {</span>
+#&gt; <span class='message'>     min-height: 100vh;</span>
+#&gt; <span class='message'>   }</span>
+#&gt; <span class='message'>   .scrollHalf__group__imagen {</span>
+#&gt; <span class='message'>     position: fixed;</span>
+#&gt; <span class='message'>     top: 0;</span>
+#&gt; <span class='message'>     left: 0;</span>
+#&gt; <span class='message'>     width: 50vw;</span>
+#&gt; <span class='message'>   }</span>
+#&gt; <span class='message'>   .scrollHalf__group__imagen img {</span>
+#&gt; <span class='message'>     min-height: 100vh;</span>
+#&gt; <span class='message'>     min-width: 50vw;</span>
+#&gt; <span class='message'>   }</span>
+#&gt; <span class='message'>   .scrollHalf__group__content {</span>
+#&gt; <span class='message'>     margin: 0 3vw 0 52vw;</span>
+#&gt; <span class='message'>   }</span>
+#&gt; <span class='message'> }</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'> .halfScroll {</span>
+#&gt; <span class='message'>   position: relative</span>
+#&gt; <span class='message'> }</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'> .halfScroll__group {</span>
+#&gt; <span class='message'>   transition: all 200ms ease-in-out;</span>
+#&gt; <span class='message'> }</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'> .halfScroll__group__imagen {</span>
+#&gt; <span class='message'>   overflow: hidden;</span>
+#&gt; <span class='message'> }</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'> .halfScroll__group__content {</span>
+#&gt; <span class='message'>   padding: 3rem;</span>
+#&gt; <span class='message'> }</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'> .halfScroll__group[data-scroll="out"] {</span>
+#&gt; <span class='message'>   opacity: 0;</span>
+#&gt; <span class='message'> }</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'> .halfScroll__group[data-scroll="in"] {</span>
+#&gt; <span class='message'>   opacity: calc(var(--visible-y)*1.9);</span>
+#&gt; <span class='message'> }</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'> @media screen and (min-width:900px) {</span>
+#&gt; <span class='message'>   .halfScroll__group {</span>
+#&gt; <span class='message'>     min-height: 100vh;</span>
+#&gt; <span class='message'>   }</span>
+#&gt; <span class='message'>   .halfScroll__group__content {</span>
+#&gt; <span class='message'>     position: fixed;</span>
+#&gt; <span class='message'>     top: 0;</span>
+#&gt; <span class='message'>     left: 0;</span>
+#&gt; <span class='message'>     width: 52vw;</span>
+#&gt; <span class='message'>   }</span>
+#&gt; <span class='message'>   .halfScroll__group__imagen img {</span>
+#&gt; <span class='message'>     min-height: 100vh;</span>
+#&gt; <span class='message'>     min-width: 52vw;</span>
+#&gt; <span class='message'>   }</span>
+#&gt; <span class='message'>   .halfScroll__group__imagen {</span>
+#&gt; <span class='message'>     margin: 0 0vw 0 50vw;</span>
+#&gt; <span class='message'>   }</span>
+#&gt; <span class='message'> }</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>/* Fonts */</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'> body{</span>
+#&gt; <span class='message'>  font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;</span>
+#&gt; <span class='message'>  font-size: 16px;</span>
+#&gt; <span class='message'>  color: #2e2e2e;</span>
+#&gt; <span class='message'>}</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>h1, h2, h3, h4, h5, h6{</span>
+#&gt; <span class='message'>  font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;</span>
+#&gt; <span class='message'>  font-weight: 600;</span>
+#&gt; <span class='message'>  color: #000000;</span>
+#&gt; <span class='message'>}</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>p{</span>
+#&gt; <span class='message'>  font-size: 16px;</span>
+#&gt; <span class='message'>  color: #666666;</span>
+#&gt; <span class='message'>}</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>h1{</span>
+#&gt; <span class='message'>  font-size: 60px;</span>
+#&gt; <span class='message'>}</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>h2{</span>
+#&gt; <span class='message'>  font-size: 50px;</span>
+#&gt; <span class='message'>}</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>h3{</span>
+#&gt; <span class='message'>  font-size: 30px;</span>
+#&gt; <span class='message'>}</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>h4{</span>
+#&gt; <span class='message'>  font-size: 25px;</span>
+#&gt; <span class='message'>}</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>h5{</span>
+#&gt; <span class='message'>  font-size: 18px;</span>
+#&gt; <span class='message'>}</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>h6{</span>
+#&gt; <span class='message'>  font-size: 15px;</span>
+#&gt; <span class='message'>  font-weight: 300;</span>
+#&gt; <span class='message'>}</span></div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
